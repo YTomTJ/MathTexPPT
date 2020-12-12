@@ -66,13 +66,17 @@ namespace MathTexPPT {
             // Edit it and retrieve output image.
             if(editor.ShowDialog() == DialogResult.OK) {
                 if(editor.outputImage != null) {
+                    var left = shape.Left;
+                    var top = shape.Top;
                     shape.Delete();
-                    PastePicture(editor.outputImage, editor.inputLatex);
+                    var sh = PastePicture(editor.outputImage, editor.inputLatex);
+                    sh.Left = left;
+                    sh.Top = top;
                 }
             }
         }
 
-        private void PastePicture(Image image, string formula = null) {
+        private PPT.Shape PastePicture(Image image, string formula = null) {
             PPT.Slide slide = Globals.ThisAddIn.Application.ActiveWindow.View.Slide;
             var c0 = slide.Shapes.Count;
             Clipboard.SetDataObject(image);
@@ -82,9 +86,11 @@ namespace MathTexPPT {
                 SetFormula(shape, formula);
                 shape.ScaleHeight((float)(editor.outputScale / editor.baseScale), Microsoft.Office.Core.MsoTriState.msoTrue);
                 shape.ScaleWidth((float)(editor.outputScale / editor.baseScale), Microsoft.Office.Core.MsoTriState.msoTrue);
+                return shape;
             } else {
                 MessageBox.Show("Paste output image failed.");
             }
+            return null;
         }
 
         #region MathTexPPT Tools

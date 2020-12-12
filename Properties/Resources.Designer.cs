@@ -73,29 +73,9 @@ namespace MathTexPPT.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap formula {
-            get {
-                object obj = ResourceManager.GetObject("formula", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
         internal static System.Drawing.Bitmap sigma {
             get {
                 object obj = ResourceManager.GetObject("sigma", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap sum {
-            get {
-                object obj = ResourceManager.GetObject("sum", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
